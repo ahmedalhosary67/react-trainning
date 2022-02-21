@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -6,7 +6,10 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.disabled{
+  opacity: .6;
+  cursor: default;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -22,9 +25,9 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
 }
 
@@ -35,4 +38,9 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.div1 {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
 }
