@@ -44,3 +44,6 @@
   height: 100px;
   background-color: blue;
 }
+.badge {
+  font-size: 100% !important;
+}

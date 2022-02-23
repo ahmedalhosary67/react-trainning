@@ -12,23 +12,21 @@ const App = () => {
     { id: 4, value: 0 },
   ]);
 
-  const handleIncreament = (counter) => {
-    counter.value++;
-    setCounters([...counters]);
-  };
-  const handleDecreament = (counter) => {
-    if (counter.value > 0) {
-      counter.value--;
+  const handleIncreament = (counter, amount, e) => {
+    console.log(e);
+    if (counter.value + 1 * +amount.current.value <= 10) {
+      counter.value = counter.value + 1 * +amount.current.value;
       setCounters([...counters]);
     }
   };
-  // handleIncreament = (counter) => {
-  //     const counters = [ ...counters ];
-  //     const Index = counters.indexOf(counter);
-  //     counters[Index] = { ...counter };
-  //     counters[Index].value++;
-  //     setCounters(counters);
-  // }
+  
+  const handleDecreament = (counter, amount, e) => {
+    console.log(e.target.getBoundingClientRect().left);
+    if (counter.value - 1 * +amount.current.value >= 0) {
+      counter.value = counter.value - 1 * +amount.current.value;
+      setCounters([...counters]);
+    }
+  };
 
   const handleReset = () => {
     const myArry = counters.map((c) => {

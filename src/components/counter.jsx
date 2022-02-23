@@ -1,16 +1,20 @@
 import React, { useEffect } from "react";
+import { Button } from "./button";
 
 const Counter = (props) => {
-  const { onIncreament, onDecreament, onDelete, counter } = props;
+  const { onIncreament, onDecreament, onDelete, counter, counters, amount } = props;
+
   useEffect(() => {
-    console.log("hello 2");
-    document.title = `counter app ${counter}`;
-    return () => {
-        setTimeout(() => {
-            console.log("clear");
-        }, 1000);
-    }
+    document.title = `counter no(${counter.id}) = ${counter.value} `;
+    setTimeout(() => {
+      document.title = `counters = ${counters.length}`;
+    }, 1000);
   }, [counter.value]);
+
+  useEffect(() => {
+    document.title = `counters = ${counters.length}`;
+  }, [counters.length]);
+
   return (
     <div>
       <div className="row">
@@ -20,25 +24,9 @@ const Counter = (props) => {
           </span>
         </div>
         <div className="col">
-          <button
-            onClick={() => onIncreament(counter)}
-            className="btn btn-secondary btn-sm"
-          >
-            +
-          </button>
-          <button
-            onClick={() => onDecreament(counter)}
-            className="btn btn-secondary btn-sm m-2"
-            disabled={counter.value === 0 ? "disabled" : ""}
-          >
-            -
-          </button>
-          <button
-            onClick={() => onDelete(counter.id)}
-            className="btn btn-danger btn-sm "
-          >
-            x
-          </button>
+          <Button countfn={(e) => onIncreament(counter, amount, e)} label="+" />
+          <Button countfn={(e) => onDecreament(counter, amount, e)} label="-" disabled={counter.value === 0 ? "disabled" : ""} />
+          <Button countfn={() => onDelete(counter.id)} label="x" />
         </div>
       </div>
     </div>
